@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/854810a797.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-header">
+            <h4></h4>
+        </div>
+        <div class="main-header">
+            <h4>OUTGOINGS</h4>
+        </div>
+        <div class="menu">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-link"><i class="fas fa-house-user"></i> HOME</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link"><i class="fa fa-piggy-bank"></i></i> BUDGET</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link"><i class="far fa-grin-beam"></i> INCOMINGS</a>
+                </li>
+                <li class="menu-item">
+                    <a href="outgoings.html" class="menu-link"><i class="far fa-frown"></i> OUTGOINGS</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link"><i class="fas fa-donate"></i> SAVINGS</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link"><i class="far fa-address-card"></i> CONTACTS</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link"><i class="fas fa-sliders-h"></i> SETTINGS</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="main-nested">
+                <div class="main-nested-long">
+                    <h3>Add Outgoings</h3>
+                    <div class="outgoingsContainer">
+                        <div class="outgoingsChild">
+                            <label>Select recipient:<br>
+                                <select name="dropdown-with-groups">
+                                    <optgroup label="Boende">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Mat & Förbrukning">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Avgifter & Försäkringar">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Transport">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Nöjen">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+                                    <optgroup label="Övrigt">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                    </optgroup>
+
+                                </select>
+
+                            </label>
+                            <button onclick="buttonClick()" id="buttonAdd">Add new</button>
+                        </div>
+                        <div class="outgoingsChild">
+                            <label>
+                                Date:<br>
+                                <input type="date" name="number">
+                            </label>
+                        </div>
+                        <div class="outgoingsChild">
+                            <label>
+                                Sum:<br>
+                                <input type="number" min="1" max="100" name="number" >
+                            </label>
+                        </div>
+                    </div>
+                    <div class="outgoingsContainer">   
+                        <div class="outgoingsChild">
+                            <label>
+                                <p>Recurring payment</p>
+                                <input type="checkbox" name="cbox2" value="free-stuff">Monthly
+                                <input type="checkbox" name="cbox2" value="free-stuff">Quarterly 
+                                <input type="checkbox" name="cbox2" value="free-stuff">Yearly
+                            </label>
+                        </div>
+                    </div> 
+                    <div id="addNew">
+
+                    </div>
+                    <div class="outgoingsContainer right">
+                        <input type="submit" value="Add outgoing!">
+                    </div>
+                </div>
+                <div>
+                    <h3>Added Outgoings</h3>
+                    <table>
+                        <tbody>
+                        <tr>
+                        <td><B>Recipient</B></td>
+                        <td><B>Date</B></td>
+                        <td><B>Sum</B></td>
+                        <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                        <td>Rent</td>
+                        <td>25 March</td>
+                        <td>7200:-</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+
+                        </tr>
+                        <tr>
+                        <td>ICA</td>
+                        <td>17 March</td>
+                        <td>1245:-</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+
+                        </tr>
+                        <tr>
+                        <td>Steam</td>
+                        <td>1 March</td>
+                        <td>560:-</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+
+                        </tr>
+                        <tr>
+                        <td>&nbsp;</td>
+                        <td><B>Total</B></td>
+                        <td><B>9005:-</B></td>
+                        <td>&nbsp;</td>
+
+                        </tr>
+                        <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+
+                        </tr>
+                          </tbody>
+                        </table>
+                        <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <div class="main-nested">
+                <div class="main-nested-xlong">
+                    <div class="chart">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
