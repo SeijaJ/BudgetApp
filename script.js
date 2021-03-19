@@ -1,3 +1,29 @@
+// FETCH Betalningsmotagare 
+
+const GetPayees = () => {
+  fetch('https://localhost:44337/api/Payee')      
+  .then(respons => respons.json() )  
+  .then( data => console.log(data))               
+  .then((data) => {                              
+      console.log(data)
+      return data
+  })
+  .then((data) => {                              
+      addPayees(data)
+  })
+}
+
+GetPayees()
+
+const addPayees = (data) => {
+
+    //loopa skiten här på något magiskt vis
+
+}
+
+
+// SKAPA FORMS -----------------------------------------------
+
 let buttonClicked = false //Markör för att veta status på knappen
 
 const buttonClick = () => {
