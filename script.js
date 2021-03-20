@@ -2,8 +2,7 @@
 
 const GetPayees = () => {
   fetch('https://localhost:44337/api/Payee')      
-  .then(respons => respons.json() )  
-  .then( data => console.log(data))               
+  .then((respons) => { return respons.json() })            
   .then((data) => {                              
       console.log(data)
       return data
@@ -16,16 +15,16 @@ const GetPayees = () => {
 GetPayees()
 
 const addPayees = (data) => {
+ 
+let select = document.getElementById('Payees')
 
-  let dropdown = document.getElementById('Payees')
-  let payees = data
+for (let payee of data){
+let opt = document.createElement('option')
+opt.value = select.ID
+opt.text = select.Name
+select.appendChild(opt)
+}
 
-  for (let payee of payees) {
-    var option = document.createElement("option");
-    option.text += `${payee.Name}`
-    dropdown.appendChild(option);
-  }
-    
 
 }
 
