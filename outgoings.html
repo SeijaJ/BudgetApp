@@ -53,15 +53,18 @@
                     <div class="outgoingsContainer">
                         <div class="outgoingsChild">
 
-                            <label>Select recipient:<br>
-                                <select class="addRecipient">
-                                    <option>Choose Recipient</option>
+                            <label>Recipient:<span id="myBtn"><i class="fas fa-plus-circle"></i></span><br>
+                                <select name="Payee" id="Payees">
+                                    <option>-- Recipients--</option>
+                                    <option value="1">Eon</option>
+                                    <option value="2">Subway</option>
                                 </select>
                             </label>
                         </div>
                         <div class="outgoingsChild">
-                            <label>Select Category:<br>
-                                <select class="SelectCategory">
+                            <label>Category:<br>
+                                <select name="ExpenseCategory">
+                                    <option value="">--Category--</option>
                                     <option>Boende</option>
                                     <option>Mat & Förbrukning</option>
                                     <option>Avgifter & Försäkringar</option>
@@ -86,15 +89,18 @@
                     </div>
                     <div class="outgoingsContainer">
                         <div class="outgoingsChild">
-                            <label>
-                                <p>Recurring payment</p>
-                                <input type="checkbox" name="cbox2" value="free-stuff">Monthly
-                                <input type="checkbox" name="cbox2" value="free-stuff">Quarterly
-                                <input type="checkbox" name="cbox2" value="free-stuff">Yearly
-                            </label>
+
+                            <p>Recurring payment<span onclick="buttonClick()" id="buttonAdd">
+                                    <i class="fas fa-toggle-off fa-lg"></i></span>
+                            </p>
+
+                            <div id="addNew">
+
+                            </div>
+
+
                         </div>
-                    </div>
-                    <div id="addNew">
+
 
                     </div>
                     <div class="outgoingsContainer right">
@@ -161,6 +167,27 @@
             </div>
         </div>
     </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add new recipient</h3>
+            <hr>
+            <form action="">
+                <label>New Recipient:
+                    <input type="text" name="Payee" id="name" required>
+                </label>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
     <script src="script.js"></script>
 </body>
 

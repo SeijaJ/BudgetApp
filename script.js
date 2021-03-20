@@ -17,12 +17,21 @@ GetPayees()
 
 const addPayees = (data) => {
 
-    //loopa skiten här på något magiskt vis
+  let dropdown = document.getElementById('Payees')
+  let payees = data
+
+  for (let payee of payees) {
+    var option = document.createElement("option");
+    option.text += `${payee.Name}`
+    dropdown.appendChild(option);
+  }
+    
 
 }
 
 
-// SKAPA FORMS -----------------------------------------------
+// TOGGLE -----------------------------------------------
+
 
 let buttonClicked = false //Markör för att veta status på knappen
 
@@ -30,10 +39,10 @@ const buttonClick = () => {
     let button = document.getElementById('buttonAdd')
     if (buttonClicked == true){
         remove()
-        button.innerHTML = 'Add'
+        button.innerHTML = '<i class="fas fa-toggle-off fa-lg"></i>'
     }else {
         addRecipent()
-        button.innerHTML = 'Close'
+        button.innerHTML = '<i class="fas fa-toggle-on fa-lg"></i>'
     }
 
     buttonClicked = !buttonClicked
@@ -44,82 +53,79 @@ let div = document.getElementById('addNew')
 div.innerHTML = '' //talar om att div-addNew ska tömmas på HTML
 }
 
+
 // CREATE NEW ELEMENTS --------------------------------------------------------
 
 const addRecipent = () => {
 
-let heading = document.createElement('p')
-heading.textContent = 'Add new recipient' 
-heading.classList.add('headingTitle')
+let labelMonthly = document.createElement('label')
+let labelQuarterly = document.createElement('label')
+let labelYearly = document.createElement('label')
 
-// Name field -----------------------------------------------------------------
+let radioMonthly = document.createElement('input')
+let radioQuarterly = document.createElement('input')
+let radioYearly = document.createElement('input')
 
-let recipientNameLabel = document.createElement('label')
-recipientNameLabel.innerHTML = 'Set name<br>'
-let field = document.createElement('input')
-field.setAttribute('type', 'text')
-recipientNameLabel.appendChild(field)
+radioMonthly.setAttribute('type', 'radio')
+radioQuarterly.setAttribute('type', 'radio')
+radioYearly.setAttribute('type', 'radio')
 
-let addChild1 = document.createElement('div')
-addChild1.classList.add('outgoingsChild')
-addChild1.appendChild(recipientNameLabel)
+textMonthly = document.createTextNode('Monthly')
+textQuarterly = document.createTextNode('Quarterly')
+textYearly = document.createTextNode('Yearly')
 
-// Category array ---------------------------------------------------------------
+labelMonthly.appendChild(radioMonthly)
+labelMonthly.appendChild(textMonthly)
 
-let optionsArray = ['Boende', 'Mat & Förbrukning', 'Avgifter & Försäkringar', 'Transport', 'Nöjen', 'Övrigt']
+labelQuarterly.appendChild(radioQuarterly)
+labelQuarterly.appendChild(textQuarterly)
 
-// Options-----------------------------------------------------------------------------
+labelYearly.appendChild(radioYearly)
+labelYearly.appendChild(textYearly)
 
-let categoryLabel = document.createElement('label')
-categoryLabel.innerHTML = 'Set Category<br>'
+let reccuringDiv = document.getElementById('addNew')
 
-let category = document.createElement('select')
-category.name = 'Category'
-category.id = 'category'
-
-for ( const opt of optionsArray) {
-    let categoryOpt = document.createElement('option')
-    categoryOpt.value = opt //behöver ändras, hur?
-    categoryOpt.text = opt//.charAt(0).toUpperCase() + opt.slice(1)
-    category.appendChild(categoryOpt)
-}
-
-categoryLabel.appendChild(category)
-
-let addChild2 = document.createElement('div')
-addChild2.classList.add('outgoingsChild')
-addChild2.appendChild(categoryLabel)
-
-// Save checkbox ----------------------------------------------------------------
-
-saveRecipient = document.createElement('input')
-saveRecipient.setAttribute('type', 'checkbox') //behöver value?
-
-let saveRecipientLabel = document.createElement('label')
-saveRecipientLabel.innerHTML = 'Save Recipient<br>'
-saveRecipientLabel.appendChild(saveRecipient)
-
-let addChild3 = document.createElement('div')
-addChild3.classList.add('outgoingsChild')
-addChild3.appendChild(saveRecipientLabel)
-
-// container -----------------------------------------------------------------
-
-let addContainerDiv = document.createElement('div')
-addContainerDiv.classList.add('outgoingsContainer')
-addContainerDiv.appendChild(addChild1)
-addContainerDiv.appendChild(addChild2)
-addContainerDiv.appendChild(addChild3)
-
-let div = document.getElementById('addNew')
-div.appendChild(heading)
-div.appendChild(addContainerDiv)
+reccuringDiv.appendChild(labelMonthly)
+reccuringDiv.appendChild(labelQuarterly)
+reccuringDiv.appendChild(labelYearly)
 
 }
     
 
+// MODAL -------------------------------------------------------
 
-// chart --------------------------------------------------------
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
+// CHART --------------------------------------------------------
 
 let myChart = document.getElementById('myChart').getContext('2d');
 
@@ -151,4 +157,6 @@ let massPopChart = new Chart(myChart, {
       }
     }
 });
+
+
 
