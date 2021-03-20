@@ -30,6 +30,23 @@ const addPayees = (data) => {
 }
 
 
+payeeForm.onsubmit = (e) => {
+  e.preventDefault()
+
+  let requestObject = {
+      Name: e.target[0].value
+  }
+
+  fetch('https://localhost:44337/api/Payee', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestObject)
+  })
+}
+
+
 // TOGGLE -----------------------------------------------
 
 
