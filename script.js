@@ -29,7 +29,7 @@ select.appendChild(opt)
 }
 
 
-// Lägga till betalningsmottagare
+// Lägga till
 
 payeeForm.onsubmit = (e) => {
   e.preventDefault()
@@ -44,6 +44,14 @@ payeeForm.onsubmit = (e) => {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestObject)
+  })
+  .then(function(response){
+    return response
+  })
+  .then(function(response){
+    console.log(response)
+    let result = document.getElementById('payeeResult')
+    result.innerHTML = `<p>${response} har nu sparats</p>`
   })
 }
 
