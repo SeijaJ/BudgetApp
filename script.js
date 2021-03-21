@@ -20,14 +20,16 @@ let select = document.getElementById('Payees')
 
 for (let payee of data){
 let opt = document.createElement('option')
-opt.value = select.ID
-opt.text = select.Name
+opt.value = payee.ID
+opt.text = payee.Name
 select.appendChild(opt)
 }
 
 
 }
 
+
+// Lägga till betalningsmottagare
 
 payeeForm.onsubmit = (e) => {
   e.preventDefault()
@@ -110,31 +112,25 @@ reccuringDiv.appendChild(labelYearly)
 
 // MODAL -------------------------------------------------------
 
-// Get the modal
+
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
+// Icon för att starta modal
 var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
+// X för att stänga modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+//knappfunktionen för att öppna
 
 btn.onclick = function() {
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+// knappfunktionen för att stänga
 span.onclick = function() {
   modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 }
 
 
